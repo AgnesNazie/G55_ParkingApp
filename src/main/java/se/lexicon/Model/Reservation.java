@@ -3,7 +3,6 @@ package se.lexicon.Model;
 import se.lexicon.Dao.Sequencer.ReservationIdSequencer;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 public class Reservation {
     // Fields

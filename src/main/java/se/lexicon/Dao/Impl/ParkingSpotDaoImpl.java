@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public class ParkingSpotDaoImpl implements ParkingSpotDao {
 
-    private ArrayList<ParkingSpot> inMemoryStorage = new ArrayList<>();
+    private final ArrayList<ParkingSpot> inMemoryStorage = new ArrayList<>();
 
     @Override
     public ParkingSpot save(ParkingSpot parkingSpot) {

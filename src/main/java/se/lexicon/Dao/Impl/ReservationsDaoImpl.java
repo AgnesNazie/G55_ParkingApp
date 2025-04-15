@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 public class ReservationsDaoImpl implements ReservationDao {
-    private ArrayList<Reservation> inMemoryStorage = new ArrayList<>();
+    private final ArrayList<Reservation> inMemoryStorage = new ArrayList<>();
 
     @Override
     public void save(Reservation reservation) {

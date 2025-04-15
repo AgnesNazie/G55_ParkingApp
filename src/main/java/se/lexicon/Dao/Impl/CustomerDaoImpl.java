@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public class CustomerDaoImpl implements CustomerDao {
 
-    private ArrayList<Customer> inMemoryStorage = new ArrayList<>();
+    private final ArrayList<Customer> inMemoryStorage = new ArrayList<>();
 
     @Override
     public Customer save(Customer customer) {
