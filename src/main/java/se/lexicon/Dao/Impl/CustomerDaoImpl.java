@@ -18,7 +18,6 @@ public class CustomerDaoImpl implements CustomerDao {
         return customer;
     }
 
-    // https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html
     @Override
     public Optional<Customer> findById(Integer id) {
         for (Customer customer : inMemoryStorage){

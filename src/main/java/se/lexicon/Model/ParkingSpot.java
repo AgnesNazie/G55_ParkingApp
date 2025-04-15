@@ -2,6 +2,7 @@ package se.lexicon.Model;
 
 public class ParkingSpot {
     //fields
+    private Integer id;
     private Integer spotNumber;
     private Integer areaCode;
     private boolean occupied;
@@ -11,6 +12,14 @@ public class ParkingSpot {
     public ParkingSpot(Integer spotNumber, Integer areaCode) {
         this.spotNumber = spotNumber;
         this.areaCode = areaCode;
+    }
+    // Getter and Setter for 'id'
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
     //getter for spot number
 
@@ -58,6 +67,10 @@ public class ParkingSpot {
             throw new IllegalArgumentException("Parking spot is already vacant");
         }
         this.occupied = false;
+    }
+    // Method to check if the parking spot is available
+    public boolean isAvailable() {
+        return !occupied;
     }
 
 }
