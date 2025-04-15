@@ -1,5 +1,7 @@
 package se.lexicon.Model;
 
+import se.lexicon.Dao.Sequencer.ReservationIdSequencer;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -15,7 +17,7 @@ public class Reservation {
     // Constructors
 
     public Reservation(Customer customer, ParkingSpot parkingSpot, int hours) {
-        this.reservationId = UUID.randomUUID().toString();
+        this.reservationId = ReservationIdSequencer.nextId() ;
         this.startTime = LocalDateTime.now();
         this.endTime = startTime.plusHours(hours);
         this.customer = customer;
@@ -23,10 +25,34 @@ public class Reservation {
         this.status = Status.ACTIVE;
     }
 
-    // Methods (getters, setters, toString and...)
+    public void setStartTime(LocalDateTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public void setEndTime(LocalDateTime endTime) {
+        this.endTime = endTime;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public void setParkingSpot(ParkingSpot parkingSpot) {
+        this.parkingSpot = parkingSpot;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+// Methods (getters, setters, toString and...)
 
     public String getReservationId() {
         return reservationId;
+    }
+    //setter for reservation Id
+
+    public void setReservationId(String reservationId) {
+        this.reservationId = reservationId;
     }
 
     public LocalDateTime getStartTime() {
