@@ -13,10 +13,16 @@ public class Customer {
     //constructor
 
     public Customer(Integer id, String name, String phoneNumber, String vehiclePlateNumber) {
-        this.id = id;
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-        this.vehiclePlateNumber = vehiclePlateNumber;
+        setId(id);
+        setName(name);
+        setPhoneNumber(phoneNumber);
+        setVehiclePlateNumber(vehiclePlateNumber);
+    }
+
+    public Customer(String name, String phoneNumber, String vehiclePlateNumber) {
+        setName(name);
+        setPhoneNumber(phoneNumber);
+        setVehiclePlateNumber(vehiclePlateNumber);
     }
     //getter for id
 
@@ -26,6 +32,7 @@ public class Customer {
     //setter for id
 
     public void setId(Integer id) {
+        if (id == null) throw new IllegalArgumentException("Id should no be null.");
         this.id = id;
     }
     //getter for name
@@ -69,9 +76,10 @@ public class Customer {
         if (vehiclePlateNumber == null || vehiclePlateNumber.trim().isEmpty())
             throw new IllegalArgumentException("Vehicle Plate Number cannot be null or empty");
 
-        final String regex = "^[A-HJ-NPR-UW-Z]{3}\\d{2}[A-HJ-NPR-UW-Z0-9]$";
+        String normalizedPlate = vehiclePlateNumber.trim().toUpperCase();
+        final String regex = "^[A-HJ-NPR-UW-Z]{3}\\s\\d{2}[A-HJ-NPR-UW-Z0-9]$";
         Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(vehiclePlateNumber.toUpperCase());
+        Matcher matcher = pattern.matcher(normalizedPlate);
         if (!matcher.matches()) throw new IllegalArgumentException("Invalid License Plate");
 
         this.vehiclePlateNumber = vehiclePlateNumber;
