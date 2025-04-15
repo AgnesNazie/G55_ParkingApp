@@ -59,4 +59,5 @@ public class ParkingSpot {
         }
         this.occupied = false;
     }
+
 }
